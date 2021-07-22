@@ -1,0 +1,37 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">به وبسایت ما خوشامدید</h1>
+    @* <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p> *@
+</div>
+
+<div class="my-container">
+
+    @if (Model.IsSuccess)
+    {
+        <div class="alert alert-success">
+            پست با موفقیت آپلود شد ;)
+        </div>
+    }
+
+    <form method="post" enctype="multipart/form-data">
+
+        <div class="form-group">
+            <label asp-for="AddPostModel.Image"></label>
+            <input type="file" asp-for="AddPostModel.Image" class="form-control" />
+        </div>
+
+        <div class="form-group">
+            <label asp-for="AddPostModel.Caption"></label>
+            <textarea asp-for="AddPostModel.Caption" class="form-control" rows="5"></textarea>
+        </div>
+
+        <input type="submit" value="ثبت پست جدید" class="btn btn-success" />
+
+    </form>
+
+</div>
